@@ -53,7 +53,9 @@ trial <- geocoded.osm %>%
 
 
 library(tigris)
-districts_un <- school_districts(type = "unified" , state = "CA", year = 2021, class = "sf") %>%
+options(tigris_use_cache = TRUE)
+
+districts_un <- school_districts(type = "unified" , state = "CA", class = "sf") %>%
     st_transform(4269) %>% rename(LEA = UNSDLEA)
 
 
